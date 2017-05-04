@@ -55,6 +55,7 @@
 				<td class="egal">=</td>
 				<td class="touche">0</td>
 				<td class="touche">+</td>
+				<td class="touche">.</td>
 				<td class="touche">,</td>
 			</tr>
 		</table>
@@ -63,25 +64,24 @@
 
 		var clavier = document.querySelectorAll(".touche");
 		var entrer =  document.querySelector(".egal");
-        var boite = document.querySelector(".calcul");
+		var boite = document.querySelector(".calcul");
 
 
 		for(i=0; i<clavier.length; i++){
-		   clavier[i].addEventListener("click", affichage);          
+		   clavier[i].addEventListener("click", remplir);        
 		}
 
 		entrer.addEventListener("click", valider);
-        
-        function affichage(){
-            var recup = this.innerHTML;
-            boite.innerHTML = boite.innerHTML + recup;
-        }
-        
-        function valider(){
-            var resultat = eval(boite.innerHTML);
-            boite.innerHTML = resultat;
-            
-        }
+
+		function remplir() {
+			var recup = this.innerHTML;
+			boite.innerHTML = boite.innerHTML + recup;
+		}
+
+		function valider() {
+			var resultat = eval(boite.innerHTML);
+			boite.innerHTML = resultat;
+		}
 
 	</script>
 
