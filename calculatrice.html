@@ -1,0 +1,83 @@
+<!DOCTYPE html lang="fr">
+<html>
+<head>
+	<title>Calculatrice</title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+
+		.touche {
+			cursor: pointer;
+			font-size: 40px;
+			padding-right: 20px; 
+		}
+		
+		.ecran {
+			height: 50px;
+			width: 200px;
+			color: black;
+			border: 1px solid black;
+		}
+
+		.calcul {
+			height: 50px;
+			width: 200px;
+			color: black;
+			margin: 0;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div class="ecran"><p class="calcul"></p></div>
+
+	<table>
+			<tr class="clavier">
+				<td class="touche">7</td>
+				<td class="touche">8</td>
+				<td class="touche">9</td>
+				<td class="operateur">/</td>
+			</tr>
+			<tr class="clavier">
+				<td class="touche">4</td>
+				<td class="touche">5</td>
+				<td class="touche">6</td>
+				<td class="operateur">*</td>
+			</tr>
+			<tr class="clavier">
+				<td class="touche">1</td>
+				<td class="touche">2</td>
+				<td class="touche">3</td>
+				<td class="operateur">-</td>
+			</tr>
+			<tr class="clavier">
+				<td class="egal">=</td>
+				<td class="touche">0</td>
+				<td class="operateur">+</td>
+				<td class="touche">,</td>
+			</tr>
+		</table>
+
+	<script type="text/javascript">
+
+		var clavierC = document.querySelectorAll(".touche");
+		var operation = document.querySelectorAll(".operateur")
+		var affiche = document.querySelector(".calcul");
+		var entrer =  document.querySelector(".egal");
+
+
+		for(i=0; i<clavierC.length; i++){
+		   clavierC[i].addEventListener("click", nbPremier);          
+		}
+
+		for(i=0; i<operation.length; i++){
+		   operation[i].addEventListener("click", nbDeux);          
+		}
+
+		entrer.addEventListener("click", valider);
+
+	</script>
+
+</body>
+</html>
