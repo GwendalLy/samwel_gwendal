@@ -37,45 +37,50 @@
 				<td class="touche">7</td>
 				<td class="touche">8</td>
 				<td class="touche">9</td>
-				<td class="operateur">/</td>
+				<td class="touche">/</td>
 			</tr>
 			<tr class="clavier">
 				<td class="touche">4</td>
 				<td class="touche">5</td>
 				<td class="touche">6</td>
-				<td class="operateur">*</td>
+				<td class="touche">*</td>
 			</tr>
 			<tr class="clavier">
 				<td class="touche">1</td>
 				<td class="touche">2</td>
 				<td class="touche">3</td>
-				<td class="operateur">-</td>
+				<td class="touche">-</td>
 			</tr>
 			<tr class="clavier">
 				<td class="egal">=</td>
 				<td class="touche">0</td>
-				<td class="operateur">+</td>
-				<td class="touche">,</td>
+				<td class="touche">+</td>
+				<td class="touche">.</td>
 			</tr>
 		</table>
 
 	<script type="text/javascript">
 
-		var clavierC = document.querySelectorAll(".touche");
-		var operation = document.querySelectorAll(".operateur")
-		var affiche = document.querySelector(".calcul");
+		var clavier = document.querySelectorAll(".touche");
 		var entrer =  document.querySelector(".egal");
+		var boite = document.querySelector(".calcul");
 
 
-		for(i=0; i<clavierC.length; i++){
-		   clavierC[i].addEventListener("click", nbPremier);          
-		}
-
-		for(i=0; i<operation.length; i++){
-		   operation[i].addEventListener("click", nbDeux);          
+		for(i=0; i<clavier.length; i++){
+		   clavier[i].addEventListener("click", remplir);        
 		}
 
 		entrer.addEventListener("click", valider);
+
+		function remplir() {
+			var recup = this.innerHTML;
+			boite.innerHTML = boite.innerHTML + recup;
+		}
+
+		function valider() {
+			var resultat = eval(boite.innerHTML);
+			boite.innerHTML = resultat;
+		}
 
 	</script>
 
